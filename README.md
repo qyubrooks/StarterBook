@@ -8,8 +8,6 @@ Since getting funded on Kickstarter requires meeting or exceeding the project's 
 
 ## Instructions
 
-![Kickstarter Table](Images/FullTable.PNG)
-
 * Use conditional formatting to fill each cell in the `state` column with a different color, depending on whether the associated campaign was "successful," "failed," "cancelled," or is currently "live".
 
 * Create a new column at column O called `percent funded` that uses a formula to uncover how much money a campaign made towards reaching its initial goal.
@@ -20,31 +18,25 @@ Since getting funded on Kickstarter requires meeting or exceeding the project's 
 
 * Create two new columns, one called `category` at Q and another called `sub-category` at R, which use formulas to split the `Category and Sub-Category` column into two parts.
 
-  ![Category Stats](Images/CategoryStats.PNG)
+* Create a new sheet with a pivot table that will analyze your initial worksheet to count how many campaigns were "successful," "failed," "cancelled," or are currently "live" per **category**.
 
-  * Create a new sheet with a pivot table that will analyze your initial worksheet to count how many campaigns were "successful," "failed," "cancelled," or are currently "live" per **category**.
+* Create a stacked column pivot chart that can be filtered by `country` based on the table you have created.
 
-    * Create a stacked column pivot chart that can be filtered by `country` based on the table you have created.
+* Create a new sheet with a pivot table that will analyze your initial sheet to count how many campaigns were "successful," "failed," "cancelled," or are currently "live" per **sub-category**.
 
-  ![Subcategory Stats](Images/SubcategoryStats.PNG)
-
-  * Create a new sheet with a pivot table that will analyze your initial sheet to count how many campaigns were "successful," "failed," "cancelled," or are currently "live" per **sub-category**.
-
-    * Create a stacked column pivot chart that can be filtered by `country` and `parent-category` based on the table you have created.
+* Create a stacked column pivot chart that can be filtered by `country` and `parent-category` based on the table you have created.
 
 * The dates stored within the `deadline` and `launched_at` columns are using unix timestamps. Fortunately for us, [there is a formula](http://spreadsheetpage.com/index.php/tip/converting_unix_timestamps/) out there that can be used to convert these timestamps into a normal date.
 
-  * Create a new column named `Date Created Conversion` that will use [this formula](http://spreadsheetpage.com/index.php/tip/converting_unix_timestamps/) to convert the data contained within `launched_at` into Excel's Date format
+* Create a new column named `Date Created Conversion` that will use [this formula](http://spreadsheetpage.com/index.php/tip/converting_unix_timestamps/) to convert the data contained within `launched_at` into Excel's Date format
 
-  * Create a new column named `Date Ended Conversion` that will use [this formula](http://spreadsheetpage.com/index.php/tip/converting_unix_timestamps/) to convert the data contained within `deadline` into Excel's Date format
+* Create a new column named `Date Ended Conversion` that will use [this formula](http://spreadsheetpage.com/index.php/tip/converting_unix_timestamps/) to convert the data contained within `deadline` into Excel's Date format
 
-  ![Outcomes Based on Launch Date](Images/LaunchDateOutcomes.PNG)
+* Create a new sheet with a pivot table with a column of `state`, rows of `Date Created Conversion`, values based on the count of `state`, and filters based on `parent category` and `Years`.
 
-  * Create a new sheet with a pivot table with a column of `state`, rows of `Date Created Conversion`, values based on the count of `state`, and filters based on `parent category` and `Years`.
+* Create a pivot chart line graph that visualizes this new table.
 
-  * Now create a pivot chart line graph that visualizes this new table.
-
-* Create a report in Microsoft Word and answer the following questions...
+* Create a report in Microsoft Word and answer the following questions:
 
 1. What are three conclusions we can make about Kickstarter campaigns given the provided data?
 2. What are some of the limitations of this dataset?
@@ -54,7 +46,7 @@ Since getting funded on Kickstarter requires meeting or exceeding the project's 
 
 * Create a new sheet with 8 columns: `Goal`, `Number Successful`, `Number Failed`, `Number Canceled`, `Total Projects`, `Percentage Successful`, `Percentage Failed`, and `Percentage Canceled`
 
-  * In the `goal` column, create twelve rows with the following headers...
+* In the `goal` column, create twelve rows with the following headers...
 
     * Less Than 1000
     * 1000 to 4999
@@ -69,10 +61,8 @@ Since getting funded on Kickstarter requires meeting or exceeding the project's 
     * 45000 to 49999
     * Greater than or equal to 50000
 
-    ![Goal Outcomes](Images/GoalOutcomes.PNG)
+* Using the `COUNTIFS()` formula, count how many successful, failed, and canceled projects were created with goals within those ranges listed above. Populate the `Number Successful`, `Number Failed`, and `Number Canceled` columns with this data.
 
-  * Using the `COUNTIFS()` formula, count how many successful, failed, and canceled projects were created with goals within those ranges listed above. Populate the `Number Successful`, `Number Failed`, and `Number Canceled` columns with this data.
+* Add up each of the values in the `Number Successful`, `Number Failed`, and `Number Canceled` columns to populate the `Total Projects` column. Then, using a mathematic formulae, find the percentage of projects which were successful, failed, or were canceled per goal range.
 
-  * Add up each of the values in the `Number Successful`, `Number Failed`, and `Number Canceled` columns to populate the `Total Projects` column. Then, using a mathematic formulae, find the percentage of projects which were successful, failed, or were canceled per goal range.
-
-  * Create a line chart which graphs the relationship between a goal's amount and its chances at success, failure, or cancellation.
+* Create a line chart which graphs the relationship between a goal's amount and its chances at success, failure, or cancellation.
